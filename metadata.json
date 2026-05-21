@@ -1,0 +1,6 @@
+{
+  "name": "Mentoria de Processos",
+  "description": "Sistema web interativo para diagnóstico e consolidação de planos de ação em mentorias de processos empresariais.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

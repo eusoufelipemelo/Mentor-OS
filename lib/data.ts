@@ -1,0 +1,285 @@
+export type Status = 'Sim' | 'Parcial' | 'Não' | '';
+export type FinalStatus = 'Crítico' | 'Atenção' | 'Adequado' | 'Pendente';
+
+export interface ChecklistItem {
+  id: string;
+  label: string;
+  checked: boolean;
+}
+
+export interface StepData {
+  id: string;
+  name: string;
+  description: string;
+  status: Status;
+  howItIsToday: string;
+  gap: string;
+  recommendedAction: string;
+  responsible: string;
+  deadline: string;
+  checklist: ChecklistItem[];
+  documents: string;
+  suggestedMessage: string;
+  finalStatus: FinalStatus;
+  commonGap: string;
+}
+
+export interface MenteeData {
+  name: string;
+  company: string;
+  segment: string;
+  date: string;
+}
+
+export const INITIAL_STEPS: StepData[] = [
+  {
+    id: '01',
+    name: 'Pré-Venda',
+    description: 'Qualificação de projeto e desenvolvimento de proposta',
+    status: '',
+    howItIsToday: '',
+    gap: '',
+    recommendedAction: '',
+    responsible: '',
+    deadline: '',
+    documents: '',
+    suggestedMessage: '',
+    finalStatus: 'Pendente',
+    commonGap: 'A empresa não tem critério para saber se vale a pena atender o cliente — aceita tudo e perde tempo.',
+    checklist: [
+      { id: '1-1', label: 'Critérios de qualificação de lead definidos', checked: false },
+      { id: '1-2', label: 'Roteiro de perguntas para qualificação existente', checked: false },
+      { id: '1-3', label: 'Modelo de proposta comercial padronizado', checked: false },
+      { id: '1-4', label: 'Precificação estruturada (tabela ou calculadora)', checked: false },
+      { id: '1-5', label: 'Prazo de resposta de proposta definido', checked: false },
+      { id: '1-6', label: 'Responsável pela Pré-Venda definido', checked: false },
+      { id: '1-7', label: 'Registro de propostas enviadas (planilha, CRM ou sistema)', checked: false },
+      { id: '1-8', label: 'Follow-up após envio de proposta estruturado', checked: false },
+    ],
+  },
+  {
+    id: '02',
+    name: 'Venda',
+    description: 'Assinatura de contrato e aprovação financeira',
+    status: '',
+    howItIsToday: '',
+    gap: '',
+    recommendedAction: '',
+    responsible: '',
+    deadline: '',
+    documents: '',
+    suggestedMessage: '',
+    finalStatus: 'Pendente',
+    commonGap: 'Contrato genérico ou inexistente, condições negociadas caso a caso sem padrão.',
+    checklist: [
+      { id: '2-1', label: 'Contrato padrão elaborado e revisado juridicamente', checked: false },
+      { id: '2-2', label: 'Processo de assinatura definido (físico ou digital)', checked: false },
+      { id: '2-3', label: 'Condições de pagamento padronizadas', checked: false },
+      { id: '2-4', label: 'Aprovação de crédito/financeiro tem fluxo definido', checked: false },
+      { id: '2-5', label: 'Entrada/sinal obrigatório antes de iniciar o projeto', checked: false },
+      { id: '2-6', label: 'Responsável pela Venda e pelo fechamento definido', checked: false },
+      { id: '2-7', label: 'Registro de contratos assinados organizado', checked: false },
+      { id: '2-8', label: 'Cliente recebe algum documento de boas-vindas após fechar', checked: false },
+    ],
+  },
+  {
+    id: '03',
+    name: 'Medição',
+    description: 'Visita técnica detalhada e coleta de dados',
+    status: '',
+    howItIsToday: '',
+    gap: '',
+    recommendedAction: '',
+    responsible: '',
+    deadline: '',
+    documents: '',
+    suggestedMessage: '',
+    finalStatus: 'Pendente',
+    commonGap: 'Medição feita de memória ou em papel avulso, dados se perdem antes de chegar ao projeto.',
+    checklist: [
+      { id: '3-1', label: 'Protocolo de visita técnica documentado', checked: false },
+      { id: '3-2', label: 'Formulário de coleta de dados no local existente', checked: false },
+      { id: '3-3', label: 'Checklist de medição padronizado por tipo de projeto', checked: false },
+      { id: '3-4', label: 'Registro fotográfico obrigatório definido', checked: false },
+      { id: '3-5', label: 'Responsável pela medição definido', checked: false },
+      { id: '3-6', label: 'Prazo entre venda e visita técnica estabelecido', checked: false },
+      { id: '3-7', label: 'Dados coletados alimentam diretamente o projeto executivo', checked: false },
+      { id: '3-8', label: 'Cliente assina ou confirma os dados coletados', checked: false },
+    ],
+  },
+  {
+    id: '04',
+    name: 'Executivo',
+    description: 'Detalhamento técnico do projeto e aprovação',
+    status: '',
+    howItIsToday: '',
+    gap: '',
+    recommendedAction: '',
+    responsible: '',
+    deadline: '',
+    documents: '',
+    suggestedMessage: '',
+    finalStatus: 'Pendente',
+    commonGap: 'Projeto aprovado verbalmente, sem registro — gera retrabalho e conflito na entrega.',
+    checklist: [
+      { id: '4-1', label: 'Software/ferramenta de projeto definida e padronizada', checked: false },
+      { id: '4-2', label: 'Template ou padrão visual de projeto existente', checked: false },
+      { id: '4-3', label: 'Lista de itens obrigatórios no projeto executivo definida', checked: false },
+      { id: '4-4', label: 'Processo de revisão interna antes de enviar ao cliente', checked: false },
+      { id: '4-5', label: 'Cliente aprova o projeto formalmente (assinatura ou e-mail)', checked: false },
+      { id: '4-6', label: 'Revisões têm limite ou política definida', checked: false },
+      { id: '4-7', label: 'Arquivo do projeto salvo em local organizado e acessível', checked: false },
+      { id: '4-8', label: 'Responsável pelo projeto executivo definido', checked: false },
+    ],
+  },
+  {
+    id: '05',
+    name: 'Fabricação',
+    description: 'Aquisição de materiais e produção de componentes',
+    status: '',
+    howItIsToday: '',
+    gap: '',
+    recommendedAction: '',
+    responsible: '',
+    deadline: '',
+    documents: '',
+    suggestedMessage: '',
+    finalStatus: 'Pendente',
+    commonGap: 'Compra feita sem projeto aprovado, gerando desperdício ou falta de material na hora da montagem.',
+    checklist: [
+      { id: '5-1', label: 'Lista de materiais (BOM) gerada a partir do projeto', checked: false },
+      { id: '5-2', label: 'Fornecedores homologados por categoria de material', checked: false },
+      { id: '5-3', label: 'Processo de cotação e aprovação de compra definido', checked: false },
+      { id: '5-4', label: 'Ordem de produção/fabricação emitida formalmente', checked: false },
+      { id: '5-5', label: 'Cronograma de fabricação vinculado à data de entrega', checked: false },
+      { id: '5-6', label: 'Controle de qualidade durante a fabricação existe', checked: false },
+      { id: '5-7', label: 'Responsável pela fabricação e pelo suprimento definidos', checked: false },
+      { id: '5-8', label: 'Estoque mínimo de itens recorrentes controlado', checked: false },
+    ],
+  },
+  {
+    id: '06',
+    name: 'Entrega',
+    description: 'Planejamento logístico e transporte de produtos',
+    status: '',
+    howItIsToday: '',
+    gap: '',
+    recommendedAction: '',
+    responsible: '',
+    deadline: '',
+    documents: '',
+    suggestedMessage: '',
+    finalStatus: 'Pendente',
+    commonGap: 'Produto sai sem conferência, chega com peças faltando ou danificadas sem registro.',
+    checklist: [
+      { id: '6-1', label: 'Processo de embalagem e proteção padronizado', checked: false },
+      { id: '6-2', label: 'Checklist de conferência antes de carregar definido', checked: false },
+      { id: '6-3', label: 'Responsável pela logística e transporte definido', checked: false },
+      { id: '6-4', label: 'Data e horário de entrega alinhados com o cliente com antecedência', checked: false },
+      { id: '6-5', label: 'Documento de entrega (romaneio ou nota) emitido', checked: false },
+      { id: '6-6', label: 'Cliente assina o recebimento', checked: false },
+      { id: '6-7', label: 'Transporte próprio ou terceirizado tem processo definido', checked: false },
+      { id: '6-8', label: 'Registro de ocorrências de transporte existe', checked: false },
+    ],
+  },
+  {
+    id: '07',
+    name: 'Montagem',
+    description: 'Instalação no local e ajustes técnicos',
+    status: '',
+    howItIsToday: '',
+    gap: '',
+    recommendedAction: '',
+    responsible: '',
+    deadline: '',
+    documents: '',
+    suggestedMessage: '',
+    finalStatus: 'Pendente',
+    commonGap: 'Equipe chega no local sem informações completas do projeto, improvisa e gera retrabalho.',
+    checklist: [
+      { id: '7-1', label: 'Equipe de montagem treinada e com responsável definido', checked: false },
+      { id: '7-2', label: 'Cronograma de montagem enviado ao cliente previamente', checked: false },
+      { id: '7-3', label: 'Checklist de montagem por tipo de projeto existente', checked: false },
+      { id: '7-4', label: 'Ferramentas e EPIs necessários listados e disponíveis', checked: false },
+      { id: '7-5', label: 'Ajustes técnicos no local têm procedimento definido', checked: false },
+      { id: '7-6', label: 'Registro fotográfico da montagem realizado', checked: false },
+      { id: '7-7', label: 'Cliente acompanha ou é informado do progresso', checked: false },
+      { id: '7-8', label: 'Prazo de montagem estimado e comunicado', checked: false },
+    ],
+  },
+  {
+    id: '08',
+    name: 'Pós-Montagem',
+    description: 'Inspeção final e satisfação do cliente',
+    status: '',
+    howItIsToday: '',
+    gap: '',
+    recommendedAction: '',
+    responsible: '',
+    deadline: '',
+    documents: '',
+    suggestedMessage: '',
+    finalStatus: 'Pendente',
+    commonGap: 'Encerramento verbal sem documento, cliente reclama depois e empresa não tem como provar o que foi entregue.',
+    checklist: [
+      { id: '8-1', label: 'Checklist de inspeção final padronizado existe', checked: false },
+      { id: '8-2', label: 'Cliente faz vistoria junto com a equipe antes de encerrar', checked: false },
+      { id: '8-3', label: 'Termo de aceite/conclusão assinado pelo cliente', checked: false },
+      { id: '8-4', label: 'Pesquisa de satisfação aplicada (NPS ou formulário)', checked: false },
+      { id: '8-5', label: 'Pendências registradas e com prazo de resolução', checked: false },
+      { id: '8-6', label: 'Fotos do resultado final tiradas e arquivadas', checked: false },
+      { id: '8-7', label: 'Manual de uso ou orientações entregues ao cliente', checked: false },
+      { id: '8-8', label: 'Responsável pela inspeção final definido', checked: false },
+    ],
+  },
+  {
+    id: '09',
+    name: 'Concluído',
+    description: 'Fechamento financeiro e documentação',
+    status: '',
+    howItIsToday: '',
+    gap: '',
+    recommendedAction: '',
+    responsible: '',
+    deadline: '',
+    documents: '',
+    suggestedMessage: '',
+    finalStatus: 'Pendente',
+    commonGap: 'Projeto entregue mas financeiro não fechado — parcelas esquecidas, nota atrasada, documentação perdida.',
+    checklist: [
+      { id: '9-1', label: 'Nota fiscal emitida corretamente', checked: false },
+      { id: '9-2', label: 'Pagamentos recebidos conferidos com o contrato', checked: false },
+      { id: '9-3', label: 'Inadimplência tem processo de cobrança definido', checked: false },
+      { id: '9-4', label: 'Documentação do projeto arquivada (digital e/ou físico)', checked: false },
+      { id: '9-5', label: 'Garantia registrada e comunicada ao cliente', checked: false },
+      { id: '9-6', label: 'Projeto encerrado no sistema/CRM', checked: false },
+      { id: '9-7', label: 'Lições aprendidas registradas internamente', checked: false },
+      { id: '9-8', label: 'Responsável pelo fechamento financeiro definido', checked: false },
+    ],
+  },
+  {
+    id: '10',
+    name: 'Assistência Técnica',
+    description: 'Suporte pós-venda e resolução de problemas',
+    status: '',
+    howItIsToday: '',
+    gap: '',
+    recommendedAction: '',
+    responsible: '',
+    deadline: '',
+    documents: '',
+    suggestedMessage: '',
+    finalStatus: 'Pendente',
+    commonGap: 'Sem registro de chamados, mesmo problema se repete, cliente insatisfeito e empresa sem dados para melhorar.',
+    checklist: [
+      { id: '10-1', label: 'Canal oficial de suporte definido e comunicado ao cliente', checked: false },
+      { id: '10-2', label: 'Política de garantia documentada e clara', checked: false },
+      { id: '10-3', label: 'Prazo de resposta ao chamado definido', checked: false },
+      { id: '10-4', label: 'Registro de chamados de assistência existe', checked: false },
+      { id: '10-5', label: 'Responsável pela assistência técnica definido', checked: false },
+      { id: '10-6', label: 'Procedimento de visita técnica pós-venda existe', checked: false },
+      { id: '10-7', label: 'Recorrência de problemas é analisada periodicamente', checked: false },
+      { id: '10-8', label: 'Histórico do cliente acessível na hora do atendimento', checked: false },
+    ],
+  }
+];
